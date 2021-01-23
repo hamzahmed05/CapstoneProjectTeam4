@@ -1,10 +1,13 @@
 import React, {useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
 import firebase from 'firebase/app'
 import 'firebase/firestore';
 import 'firebase/auth';
+
+// imports for classes
+import Title from './Title';
+
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
@@ -27,10 +30,14 @@ const firestore = firebase.firestore();
 function App() {
   const [user] = useAuthState(auth);
   return (
+    
     <div className="App">
-      <section>
-        {user ? <ChatRoom/> : <SignIn/> } 
-      </section>
+      <Title/>
+      <div> 
+        <section className="chatroom">
+          {user ? <ChatRoom/> : <SignIn/> } 
+        </section>
+      </div>
 
     </div>
   );
