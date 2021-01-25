@@ -1,4 +1,5 @@
-import React, {useState } from 'react';
+import React, {useState,  Component } from 'react';
+
 import logo from './logo.svg';
 import './App.css';
 import firebase from 'firebase/app'
@@ -7,8 +8,10 @@ import 'firebase/auth';
 
 // imports for classes
 import Title from './Title';
+import Navbar from'./layout/Navbar'
+import dashboard from './dash/dashboard';
 
-
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
@@ -30,16 +33,20 @@ const firestore = firebase.firestore();
 function App() {
   const [user] = useAuthState(auth);
   return (
-    
-    <div className="App">
-      <Title/>
-      <div> 
-        <section className="chatroom">
-          {user ? <ChatRoom/> : <SignIn/> } 
-        </section>
-      </div>
+    <BrowserRouter>
+      <div className="App">
+        <Navbar/>
+        <Switch>
+          <Route path="/" component= {dashboard}/>
+        </Switch>
+        <div> 
+          <section className="chatroom">
+            {user ? <ChatRoom/> : <SignIn/> } 
+          </section>
+        </div>
 
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
