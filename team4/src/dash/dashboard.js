@@ -19,4 +19,4 @@ class dashboard extends Component {
     }
 }
 
-export default dashboard;
+export default dashboard

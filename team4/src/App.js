@@ -10,10 +10,19 @@ import 'firebase/auth';
 import Title from './Title';
 import Navbar from'./layout/Navbar'
 import dashboard from './dash/dashboard';
+import chat from './chat/chat';
+import Home from './pages/Home';
+import Chat from './pages/Chat';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
+//import { auth } from './services/firebase';
 
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+
+import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { render } from 'react-dom';
+
 
 var firebaseConfig = {
     apiKey: "AIzaSyBHBiTi2fCc0NY3VjVyp8XGQxzfY9jzob0",
@@ -30,23 +39,26 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
+
 function App() {
   const [user] = useAuthState(auth);
+
   return (
-    <BrowserRouter>
+    <Router>
       <div className="App">
         <Navbar/>
+
         <Switch>
-          <Route path="/" component= {dashboard}/>
+          <Route path='/dash' exact component={dashboard}/>
         </Switch>
         <div> 
-          <section className="chatroom">
-            {user ? <ChatRoom/> : <SignIn/> } 
-          </section>
+            <section className="chatroom">
+                {user ? <ChatRoom/> : <SignIn/> } 
+            </section>
         </div>
-
+        
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 
