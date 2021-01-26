@@ -3,8 +3,8 @@ import React, {useState,  Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import firebase from 'firebase/app'
-import 'firebase/firestore';
-import 'firebase/auth';
+
+
 
 // imports for classes
 import Title from './Title';
@@ -15,29 +15,13 @@ import Home from './pages/Home';
 import Chat from './pages/Chat';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-//import { auth } from './services/firebase';
+import { fb , auth, firestore}  from './services/firebase';
 
 
 import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { render } from 'react-dom';
-
-
-var firebaseConfig = {
-    apiKey: "AIzaSyBHBiTi2fCc0NY3VjVyp8XGQxzfY9jzob0",
-    authDomain: "capstone-301501.firebaseapp.com",
-    projectId: "capstone-301501",
-    storageBucket: "capstone-301501.appspot.com",
-    messagingSenderId: "33802467815",
-    appId: "1:33802467815:web:ed9cb7074d72afbc98a542",
-    measurementId: "G-6QP6F6T38K"
-};
-
-firebase.initializeApp(firebaseConfig);
-
-const auth = firebase.auth();
-const firestore = firebase.firestore();
 
 
 function App() {

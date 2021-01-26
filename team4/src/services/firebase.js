@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 
-const config = {
+const firebaseConfig = {
     apiKey: "AIzaSyBHBiTi2fCc0NY3VjVyp8XGQxzfY9jzob0",
     authDomain: "capstone-301501.firebaseapp.com",
     projectId: "capstone-301501",
@@ -10,6 +10,7 @@ const config = {
     measurementId: "G-6QP6F6T38K"
 }
 
-firebase.initializeApp(config);
-export const auth = firebase.auth;
+export const fb = firebase.initializeApp(firebaseConfig);
+export const auth = firebase.auth();
 export const db = firebase.database();
+export const firestore = firebase.firestore();
