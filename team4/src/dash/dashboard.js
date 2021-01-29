@@ -1,17 +1,20 @@
 import React, { Component } from 'react'
-import notifications from './notifications'
-import projects from '../projects/projects'
-
-class dashboard extends Component {
+import Notifications from './notifications'
+import ProjectModule from '../projects/projects'
+import Calendar from "./calendar";
+class Dashboard extends Component {
     render() {
         return (
             <div className="dashboard container">
                 <div className="row">
                     <div className="col s12 m6"> 
-                        <projects/>
+                        <ProjectModule/>
                     </div>
                     <div className="col s12 m5 offset-m1">
-                        <notifications/>
+                        <Notifications/>
+                    </div>
+                    <div className="col s12 m12 ">
+                        <Calendar/>
                     </div>
                 </div>
             </div>
@@ -19,4 +22,4 @@ class dashboard extends Component {
     }
 }
 
-export default dashboard
+export default Dashboard

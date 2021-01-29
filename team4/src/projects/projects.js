@@ -1,6 +1,6 @@
 import React from 'react'
 
-const projects = () => {
+const ProjectModule = () => {
     return (
         <div className="project-list section">
             <div className="card z-depth-0 project-summary">
@@ -39,4 +39,4 @@ const projects = () => {
     
 }
 
-export default projects
+export default ProjectModule
