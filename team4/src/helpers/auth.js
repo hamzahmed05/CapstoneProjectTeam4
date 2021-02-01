@@ -11,3 +11,4 @@ export function signin(email, password){
 export function signout() {
     return auth.signOut();
   }
+

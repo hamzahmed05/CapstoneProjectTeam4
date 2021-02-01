@@ -2,12 +2,16 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
+import {connect} from 'react-redux'
 
-const Navbar = () => {
+const Navbar = (props) => {
+    const {auth} = props
+    console.log(auth)
+
     return(
         <nav className="nav-wrapper blue">
             <div className="container">
-                <Link to='/' className="brand-logo"> Capstone - 4 </Link>
+                <Link to='/' className="navbar left"> Capstone - 4 </Link>
                 <SignedInLinks/>
                 <SignedOutLinks/>
             </div>
@@ -15,4 +19,10 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+const mapStateToProps = (state) => { // mapping the state to our props (takes in the state)
+    console.log(state);
+    return {
+        
+    }
+}
+export default connect(mapStateToProps)(Navbar)

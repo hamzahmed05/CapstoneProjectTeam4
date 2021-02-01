@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import Notifications from './notifications'
 import ProjectModule from '../projects/projects'
-import Calendar from "./calendar";
+//import Calendar from "./calendar"; not in use atm
+import CreateProject from "../projects/createProject"
+
 class Dashboard extends Component {
     render() {
         return (
@@ -14,7 +16,7 @@ class Dashboard extends Component {
                         <Notifications/>
                     </div>
                     <div className="col s12 m12 ">
-                        <Calendar/>
+                        <CreateProject/>
                     </div>
                 </div>
             </div>
