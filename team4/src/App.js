@@ -30,14 +30,12 @@ function App() {
     <Router>
       <div className="App">
         <Navbar/>
-
         <Switch>
           <Route path='/project' exact component={Dashboard}/>
           <Route path='/chat' exact component ={ChatRoom}/>
           <Route path='/login' exact component={Login}/>
           <Route path='/project/:id' component={ProjectDetails}/>
         </Switch>
-
       </div>
     </Router>
   );
