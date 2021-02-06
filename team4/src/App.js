@@ -1,8 +1,7 @@
 import React, {useState,  Component } from 'react';
 
-import logo from './logo.svg';
+
 import './App.css';
-import firebase from 'firebase/app'
 
 
 // imports for classes
@@ -19,7 +18,8 @@ import Login from './pages/Login';
 import { fb , auth, firestore}  from './services/firebase';
 
 
-import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 
 class App extends Component {

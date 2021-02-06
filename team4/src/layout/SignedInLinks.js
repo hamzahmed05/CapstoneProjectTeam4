@@ -1,8 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import {signout } from '../helpers/auth'
+import { connect } from 'react-redux'
 
-const SignedInLinks = () => {
+const SignedInLinks = (props) => {
     return(
         <ul className="right">
             <li><NavLink to='/home'>Home</NavLink></li>
@@ -14,4 +15,10 @@ const SignedInLinks = () => {
     )
 }
 
-export default SignedInLinks
+const mapDispathToProps = (dispatch) => {
+    return {
+        signOut: () => dispatch(signout)
+    }
+}
+
+export default connect(null, mapDispathToProps)(SignedInLinks)

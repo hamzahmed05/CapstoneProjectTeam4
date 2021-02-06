@@ -19,4 +19,10 @@ const Navbar = (props) => {
     )
 }
 
-export default Navbar
+const mapStateToProps = (state) => { // mapping the state to our props (takes in the state)
+
+    return {
+        
+    }
+}
+export default connect(mapStateToProps)(Navbar)

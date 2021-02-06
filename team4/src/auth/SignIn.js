@@ -43,9 +43,4 @@ const mapDispathToProps = (dispatch) => {
         signIn: (creds) => dispatch(signIn(creds))
     }
 }
-
-
-
-
-
 export default connect(null, mapDispathToProps)(SignIn)
