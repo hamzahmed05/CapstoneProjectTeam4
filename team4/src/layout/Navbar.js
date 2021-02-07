@@ -9,21 +9,11 @@ import {useState} from 'react';
 
 
 const Navbar = (props) => {
-    const [authUser, setAuthUser] = useState(false);
-    auth.onAuthStateChanged(user => {
-        if (user){
-            setAuthUser(true);
-        }
-        else{
-            setAuthUser(false);
-        }
-    })
-
     return(
         <nav className="nav-wrapper blue">
             <div className="container">
                 <Link to='/' className="navbar left"> Capstone - 4 </Link>
-                {authUser ? <SignedInLinks/> : <SignedOutLinks/>}
+                {props.currentUser ? <SignedInLinks/> : <SignedOutLinks/>}
             </div>
         </nav>
     )

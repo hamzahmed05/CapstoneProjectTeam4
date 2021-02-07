@@ -4,7 +4,6 @@ import React, {useState,  Component } from 'react';
 import './App.css';
 
 
-
 // imports for classes
 import Title from './Title';
 import Navbar from'./layout/Navbar'
@@ -23,23 +22,57 @@ import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-do
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 
-function App() {
-  const [user] = useAuthState(auth);
+class App extends Component {
 
-  return (
-    <Router>
-      <div className="App">
-        <Navbar/>
-        <Switch>
-          <Route path='/project' exact component={Dashboard}/>
-          <Route path='/chat' exact component ={ChatRoom}/>
-          <Route path='/login' exact component={Login}/>
-          <Route path='/project/:id' component={ProjectDetails}/>
-        </Switch>
-      </div>
-    </Router>
-  );
+  constructor(props){
+    super(props);
+    this.state = {
+      user: {},
+    }
+  }
+
+  componentDidMount(){
+    this.authListener();
+  }
+
+  authListener() {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({user});
+      }
+      else {
+        this.setState({user: null});
+      }
+    });
+  };
+
+  render(){ 
+    return (
+      <Router>
+        <div className="App">
+          <Navbar currentUser={this.state.user}/>
+          <Switch>
+            <PrivateRoute isLoggedIn={ this.state.user } path="/home" component={Home} />
+            <PrivateRoute isLoggedIn={ this.state.user } path="/project" component={Dashboard} />
+            <PrivateRoute isLoggedIn={ this.state.user } path="/chat" component={ChatRoom} />
+            <PrivateRoute isLoggedIn={ this.state.user } path="/project/:id" component={ProjectDetails} />
+
+            <Route exact path="/">
+                {this.state.user ? <Redirect to="/home" /> : <Login />}
+            </Route>
+
+            <Route exact path="/login">
+                {this.state.user ? <Redirect to="/home" /> : <Login />}
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+      );
+    } 
 }
+
+const PrivateRoute = ({ isLoggedIn, ...props }) =>
+    isLoggedIn? <Route { ...props } /> : <Redirect to="/login" />
 
 
 export default App;

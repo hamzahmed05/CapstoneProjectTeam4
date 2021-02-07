@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 const SignedInLinks = (props) => {
     return(
         <ul className="right">
+            <li><NavLink to='/home'>Home</NavLink></li>
             <li><NavLink to='/project'>Project</NavLink></li>
             <li><NavLink to='/chat'>Chat</NavLink></li>
             <li><NavLink to='/' onClick={signout}>Log Out</NavLink></li>
