@@ -20,6 +20,7 @@ import { fb , auth, firestore}  from './services/firebase';
 
 import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 import { useAuthState } from 'react-firebase-hooks/auth';
+import Profile from './pages/Profile';
 
 
 class App extends Component {
@@ -53,6 +54,7 @@ class App extends Component {
           <Navbar currentUser={this.state.user}/>
           <Switch>
             <PrivateRoute isLoggedIn={ this.state.user } path="/home" component={Home} />
+            <PrivateRoute isLoggedIn={ this.state.user } path="/profile" render={(props) => <Profile currentUser={this.state.user} {...props}/>} />
             <PrivateRoute isLoggedIn={ this.state.user } path="/project" component={Dashboard} />
             <PrivateRoute isLoggedIn={ this.state.user } path="/chat" component={ChatRoom} />
             <PrivateRoute isLoggedIn={ this.state.user } path="/project/:id" component={ProjectDetails} />
