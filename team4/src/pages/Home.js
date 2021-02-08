@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 import React, {Component} from 'react';
 import './Home-Style.css';
 
@@ -21,4 +19,3 @@ class Home extends Component{
   }
   
   export default Home
->>>>>>> Stashed changes
