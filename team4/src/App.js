@@ -1,133 +1,78 @@
 import React, {useState,  Component } from 'react';
 
-import logo from './logo.svg';
+
 import './App.css';
-import firebase from 'firebase/app'
-import 'firebase/firestore';
-import 'firebase/auth';
+
 
 // imports for classes
 import Title from './Title';
 import Navbar from'./layout/Navbar'
-import dashboard from './dash/dashboard';
-import chat from './chat/chat';
+import Dashboard from './dash/dashboard';
+import ProjectDetails from './projects/projectDetails'
+import ChatRoom from './chat/chat';
 import Home from './pages/Home';
 import Chat from './pages/Chat';
 import Signup from './pages/Signup';
+import SignIn from './auth/SignIn';
 import Login from './pages/Login';
-//import { auth } from './services/firebase';
+import { fb , auth, firestore}  from './services/firebase';
 
 
 import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useCollectionData } from 'react-firebase-hooks/firestore';
-import { render } from 'react-dom';
 
 
-var firebaseConfig = {
-    apiKey: "AIzaSyBHBiTi2fCc0NY3VjVyp8XGQxzfY9jzob0",
-    authDomain: "capstone-301501.firebaseapp.com",
-    projectId: "capstone-301501",
-    storageBucket: "capstone-301501.appspot.com",
-    messagingSenderId: "33802467815",
-    appId: "1:33802467815:web:ed9cb7074d72afbc98a542",
-    measurementId: "G-6QP6F6T38K"
-};
+class App extends Component {
 
-firebase.initializeApp(firebaseConfig);
+  constructor(props){
+    super(props);
+    this.state = {
+      user: {},
+    }
+  }
 
-const auth = firebase.auth();
-const firestore = firebase.firestore();
+  componentDidMount(){
+    this.authListener();
+  }
 
+  authListener() {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({user});
+      }
+      else {
+        this.setState({user: null});
+      }
+    });
+  };
 
-function App() {
-  const [user] = useAuthState(auth);
+  render(){ 
+    return (
+      <Router>
+        <div className="App">
+          <Navbar currentUser={this.state.user}/>
+          <Switch>
+            <PrivateRoute isLoggedIn={ this.state.user } path="/home" component={Home} />
+            <PrivateRoute isLoggedIn={ this.state.user } path="/project" component={Dashboard} />
+            <PrivateRoute isLoggedIn={ this.state.user } path="/chat" component={ChatRoom} />
+            <PrivateRoute isLoggedIn={ this.state.user } path="/project/:id" component={ProjectDetails} />
 
-  return (
-    <Router>
-      <div className="App">
-        <Navbar/>
+            <Route exact path="/">
+                {this.state.user ? <Redirect to="/home" /> : <Login />}
+            </Route>
 
-        <Switch>
-          <Route path='/dash' exact component={dashboard}/>
-        </Switch>
-        <div> 
-            <section className="chatroom">
-                {user ? <ChatRoom/> : <SignIn/> } 
-            </section>
+            <Route exact path="/login">
+                {this.state.user ? <Redirect to="/home" /> : <Login />}
+            </Route>
+          </Switch>
         </div>
-        
-      </div>
-    </Router>
-  );
+      </Router>
+      );
+    } 
 }
 
-function SignIn() {
+const PrivateRoute = ({ isLoggedIn, ...props }) =>
+    isLoggedIn? <Route { ...props } /> : <Redirect to="/login" />
 
-  const googleSignIn = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider);
-  }
-  return (
-    <button onClick={googleSignIn}>Sign in with Google</button>
-  )
-}
-
-function SignOut() {
-  return auth.currentUser && (
-    <button onClick={() => auth.signOut()}>Sign out</button>
-  )
-}
-
-function ChatRoom() {
-  const messageRef = firestore.collection('messages');
-  const query = messageRef.orderBy('createdAt').limit(50);
-  const [messages] = useCollectionData(query, {idField: 'id'});
-
-  const [formValue, setFormValue] = useState('');
-
-  const sendMessage = async (e) => {
-    e.preventDefault();
-
-    const{uid, photoURL} = auth.currentUser;
-
-    await messageRef.add({
-      text: formValue,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      uid,
-      photoURL
-    })
-
-    setFormValue('');
-
-  }
-  return (
-    <>
-      <div>
-        {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg}/>)}
-      </div>
-
-      <form onSubmit={sendMessage}>
-        <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Send a message!" />
-
-        <button type="submit" disabled={!formValue}>Send</button>
-      </form>
-    </>
-  )
-}
-
-function ChatMessage(props){
-
-  const {text, uid, photoURL} = props.message;
-
-  const messageClass = uid == auth.currentUser.uid ? 'sent' : 'recieved';
-
-  return (
-    <div className={`message ${messageClass}`}>
-      <img src = {photoURL}/>
-      <p>{text}</p>
-    </div>
-  )
-}
 
 export default App;
