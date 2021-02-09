@@ -1,28 +1,16 @@
 import firebase from 'firebase/app'
 import { render } from 'react-dom';
-import { auth }  from '../services/firebase';
 import React, {Component} from 'react';
 import SignIn from '../auth/SignIn';
+import { fb , auth, firestore}  from '../services/firebase';
 
 const googleSignIn = () => {
       const provider = new firebase.auth.GoogleAuthProvider();
-      auth.signInWithPopup(provider);      
+      auth.signInWithPopup(provider).then((result) => {
+        addUserToDb(result.user);
+      });   
     }
 
-// const Login = () => {
-        
-//   return (
-//       <div>
-//         <h1> Please login</h1>
-//         <SignIn/>
-//           <button onClick={googleSignIn}>Sign in with Google</button>
-//       </div>       
-
-//         )
- 
-// }
-
-// export default Login
 
 class Login extends Component{
   render() {
@@ -35,6 +23,15 @@ class Login extends Component{
     )
   }
 }
+
+async function addUserToDb(user){
+  const userRef = firestore.collection('userInfo').doc(user.uid).set({
+    displayName : user.displayName,
+    email : user.email,
+    photoURL: user.photoURL
+  });
+}
+
 
 export default Login
 
