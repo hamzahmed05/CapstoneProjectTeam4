@@ -27,6 +27,7 @@ class Profile extends Component{
   }
 
     render() {
+      console.log(this.state.user);
       try{
         return (
           <div>
@@ -36,6 +37,7 @@ class Profile extends Component{
               <img src={this.state.user.photoURL}/>
               <h3>Name: {this.state.user.displayName}</h3>
               <h3>Email: {this.state.user.email}</h3>
+              <h3>Account Type: {this.state.user.accountType}</h3>
               <h3>ID: {this.state.uid}</h3>
             </div>    
             

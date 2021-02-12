@@ -1,11 +1,19 @@
 import React, {Component} from 'react';
 import './Home-Style.css';
+import {useHistory} from 'react-router-dom'
 
-class Home extends Component{
-    render() {
+export default function Home(props){
+	const history = useHistory();
+	function isNewUser(){
+		if(props.currentUser.accountType === "new"){
+		  history.push({
+			pathname: '/usersettings',
+			state: props.currentUser
+		  });
+		}
+	  }
       return (
           <div id="homepage-grid">
-     
 			<div class="wrapper">
 			  <div class="box sidebar">Profile</div>
 			  <div class="box sidebar2">Chat</div>
@@ -13,9 +21,9 @@ class Home extends Component{
 				<br /> This is where the middle content goes.</div>
 			  <div class="box footer">Footer</div>
 			</div>
+			{isNewUser()}
 		 </div>
       )
-    }
   }
-  
-  export default Home
+ 
+

@@ -13,7 +13,7 @@ const Navbar = (props) => {
         <nav className="nav-wrapper blue">
             <div className="container">
                 <Link to='/' className="navbar left"> ECampus </Link>
-                {props.currentUser ? <SignedInLinks/> : <SignedOutLinks/>}
+                {props.currentUser ? <SignedInLinks user={props.currentUser}/> : <SignedOutLinks/>}
             </div>
         </nav>
     )

@@ -7,7 +7,9 @@ import { fb , auth, firestore}  from '../services/firebase';
 const googleSignIn = () => {
       const provider = new firebase.auth.GoogleAuthProvider();
       auth.signInWithPopup(provider).then((result) => {
-        addUserToDb(result.user);
+        if (result.additionalUserInfo.isNewUser){
+          addUserToDb(result.user);
+        }
       });   
     }
 
@@ -28,7 +30,9 @@ async function addUserToDb(user){
   const userRef = firestore.collection('userInfo').doc(user.uid).set({
     displayName : user.displayName,
     email : user.email,
-    photoURL: user.photoURL
+    photoURL: user.photoURL,
+    accountType: "new",
+    uid: user.uid
   });
 }
 
