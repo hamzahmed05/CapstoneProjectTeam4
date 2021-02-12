@@ -19,7 +19,6 @@ class Login extends Component{
     return (
         <div>
           <h3> Please login</h3>
-          <SignIn/>
             <button onClick={googleSignIn}>Sign in with Google</button>
         </div>       
     )

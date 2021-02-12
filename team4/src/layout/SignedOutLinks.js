@@ -6,7 +6,6 @@ import {signin} from '../helpers/auth'
 const SignedInLinks = () => {
     return(
         <ul className="right">
-            <li><NavLink to='/'>Sign up</NavLink></li>
             <li><NavLink to='login' >Log in</NavLink></li>
         </ul>
     )
