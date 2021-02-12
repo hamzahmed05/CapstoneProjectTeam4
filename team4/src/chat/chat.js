@@ -2,6 +2,7 @@ import React, {useState,  Component } from 'react';
 import {auth, firestore}  from '../services/firebase'
 import firebase from 'firebase/app'
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import './chat-Style.css';
 
 
 export default function ChatRoom() {
@@ -27,7 +28,7 @@ export default function ChatRoom() {
     }
     return (
       <>
-        <div>
+        <div id="chat-grid">
           {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg}/>)}
         </div>
   

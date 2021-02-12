@@ -51,7 +51,7 @@
   @media only screen and (min-width: 600px)   {
     .wrapper {
       grid-gap: 20px;
-      grid-template-columns: 120px auto 120px;
+      grid-template-columns: 200px auto 200px;
       grid-template-areas:
       "sidebar content sidebar2"
       "footer  footer  footer";
@@ -69,10 +69,28 @@
 
 .header,
 .footer {
-  background-color: #999;
+  background-color: #999999;
+}
+
+.sidebar,
+.content,
+.sidebar2 {
+  height: 80vh;
+}
+
+.sidebar {
+  /* height: 50vh; */
+  background-color: #6ec6ff;
+}
+
+.content {
+  /* height: 60vh; */
+  background-color: #6ec6ff;
 }
 
 .sidebar2 {
-  background-color: #ccc;
+  background-color: #6ec6ff;
   color: #444;
+  overflow: auto;
+  /* height: 70vh; */
 }
