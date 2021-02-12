@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import './Home-Style.css';
-import {useHistory} from 'react-router-dom';
-import Profile from './Profile';
-import Chat from '../chat/chat';
+import {useHistory} from 'react-router-dom'
 
 export default function Home(props){
 	const history = useHistory();
@@ -18,7 +16,7 @@ export default function Home(props){
           <div id="homepage-grid">
 			<div class="wrapper">
 			  <div class="box sidebar">Profile</div>
-			  <div class="box sidebar2"><Chat/></div>
+			  <div class="box sidebar2">Chat</div>
 			  <div class="box content">Project Overview
 				<br /> This is where the middle content goes.</div>
 			  <div class="box footer">Footer</div>
