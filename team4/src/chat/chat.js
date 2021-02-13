@@ -2,6 +2,7 @@ import React, {useState,  Component } from 'react';
 import {auth, firestore}  from '../services/firebase'
 import firebase from 'firebase/app'
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import './chat-Style.css';
 
 
 export default function ChatRoom() {
@@ -27,11 +28,11 @@ export default function ChatRoom() {
     }
     return (
       <>
-        <div>
+        <div id="chat-grid">
           {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg}/>)}
         </div>
   
-        <form onSubmit={sendMessage}>
+        <form id ="send-message" onSubmit={sendMessage}>
           <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Send a message!" />
   
           <button type="submit" disabled={!formValue}>Send</button>
