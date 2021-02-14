@@ -1,12 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createProject } from '../actions/projectActions'
+import {auth, firestore}  from '../services/firebase'
+import firebase from 'firebase/app'
 
 class CreateProject extends Component {
+
     state = {
         status: '',
-        content: ''
+        content: '',
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        createdBy: auth.currentUser.uid
     }
+
     handleChange = (e) => {
         this.setState({
             [e.target.id]: e.target.value
