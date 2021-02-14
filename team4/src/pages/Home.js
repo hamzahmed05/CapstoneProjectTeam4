@@ -22,7 +22,7 @@ export default function Home(props){
 
 	  function isAlreadyAUser() {
 		  if (props.currentUser.accountType == "student"){
-				console.log(props.currentUser)
+				//console.log(props.currentUser)
 				return(
 					<>
 						<img src={props.currentUser.photoURL}/>
