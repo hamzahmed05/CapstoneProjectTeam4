@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { createProject } from '../actions/projectActions'
 import {auth, firestore}  from '../services/firebase'
 import firebase from 'firebase/app'
+import { useHistory, useParams } from 'react-router-dom';
+
 
 class CreateProject extends Component {
 
@@ -10,7 +12,7 @@ class CreateProject extends Component {
         status: '',
         content: '',
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-        createdBy: auth.currentUser.uid
+        createdBy: ""
     }
 
     handleChange = (e) => {

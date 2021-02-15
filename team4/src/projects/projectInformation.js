@@ -1,7 +1,9 @@
 import React from 'react'
+import { db, firestore } from '../services/firebase'
+
 
 const ProjectInformation = () => {
-
+    
     
     return(
         <div className="card z-depth-0 project-summary">

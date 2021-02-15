@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Notifications from './notifications'
 import ProjectModule from '../projects/projects'
-//import Calendar from "./calendar"; not in use atm
+
 import CreateProject from "../projects/createProject"
 
 class Dashboard extends Component {
@@ -24,4 +24,5 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard
+
+export default (Dashboard)
