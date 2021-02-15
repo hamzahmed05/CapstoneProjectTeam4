@@ -7,6 +7,7 @@ import { createStore, applyMiddleware} from 'redux'
 import rootReducer from './reducer/rootReducer'
 import {Provider} from 'react-redux' // binds redux with our react application
 import thunk from 'redux-thunk'  // used for middleware, needed for async functions.objects
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 
 // thunk is a store enhancer, this enhances our store functionality
 // (can return functions with this that interact with our database)

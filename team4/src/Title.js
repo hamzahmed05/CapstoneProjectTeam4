@@ -7,7 +7,7 @@ import './Title.css'
 class Title extends React.Component {
   render() {
     return (
-      <div class="header" id="myHeader">
+      <div className="header" id="myHeader">
           <h2>CTF</h2>
       </div>
     );

@@ -11,7 +11,9 @@
   }
 
   .content {
+    height: 60vh;
     grid-area: content;
+
   }
 
   .header {
@@ -51,7 +53,7 @@
   @media only screen and (min-width: 600px)   {
     .wrapper {
       grid-gap: 20px;
-      grid-template-columns: 120px auto 120px;
+      grid-template-columns: 200px auto 200px;
       grid-template-areas:
       "sidebar content sidebar2"
       "footer  footer  footer";
@@ -60,19 +62,40 @@
   }
 
 .box {
-  background-color: #444;
+  /*background-color: #444;*/
   color: #fff;
   border-radius: 5px;
   padding: 10px;
   font-size: 150%; 
 }
 
+
 .header,
 .footer {
-  background-color: #999;
+  background-color: #999999;
+}
+
+.sidebar,
+.content,
+.sidebar2 {
+  height: 100%;
+}
+
+.sidebar {
+  /* height: 50vh; */
+  background-color: #6ec6ff;
+  height: 15vh;
+}
+
+.content {
+  /* height: 60vh; */
+  background-color: #6ec6ff;
 }
 
 .sidebar2 {
-  background-color: #ccc;
+  /*background-color: #6ec6ff;*/
   color: #444;
+  /*overflow: scroll; */
+
 }
+
