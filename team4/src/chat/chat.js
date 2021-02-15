@@ -3,7 +3,6 @@ import {auth, firestore}  from '../services/firebase'
 import firebase from 'firebase/app'
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
-
 export default function ChatRoom() {
     const messageRef = firestore.collection('messages');
     const query = messageRef.orderBy('createdAt').limit(50);
