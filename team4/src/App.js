@@ -70,7 +70,7 @@ class App extends Component {
             
             <PrivateRoute isLoggedIn={ this.state.user } isNew={this.state.isNewUser} path="/home" render={(props) => <Home currentUser={this.state.user} {...props}/>} />
             <PrivateRoute isLoggedIn={ this.state.user } isNew={this.state.isNewUser} path="/profile/:user" render={(props) => <Profile currentUser={this.state.user} {...props}/>} />
-            <PrivateRoute isLoggedIn={ this.state.user } isNew={this.state.isNewUser} path="/project" component={Dashboard} />
+            <PrivateRoute isLoggedIn={ this.state.user } isNew={this.state.isNewUser} exact path="/project" component={Dashboard} />
             <PrivateRoute isLoggedIn={ this.state.user } isNew={this.state.isNewUser} path="/chat" component={ChatRoom} />
             <PrivateRoute isLoggedIn={ this.state.user } isNew={this.state.isNewUser} path="/usersettings" component={UserSettings} />
             <PrivateRoute isLoggedIn={ this.state.user } isNew={this.state.isNewUser} path="/project/:id" component={ProjectDetails} />
