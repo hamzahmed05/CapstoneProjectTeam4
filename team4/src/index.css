@@ -63,3 +63,53 @@ code {
 }
 
 /* End Profile CSS */
+
+/* Begin Chat CSS */
+
+.chat-body {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.chat-body:nth-child(even) {
+border-color: #ccc;
+background-color: #ddd;
+}
+
+.chat-body:nth-child(odd) {
+   border-color: #dedede;
+   background-color: #f1f1f1;
+}
+
+.chat-container {
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.chat-container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.chat-container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.chat-container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.chat-form {
+	border: 3px solid #cecece;
+}
+
+/* End Chat CSS */

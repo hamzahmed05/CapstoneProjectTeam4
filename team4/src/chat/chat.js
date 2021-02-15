@@ -31,7 +31,7 @@ export default function ChatRoom() {
           {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg}/>)}
         </div>
   
-        <form onSubmit={sendMessage}>
+        <form class="chat-form" style={{ marginTop: '0px', marginRight: 'auto', marginBottom: '50px', marginLeft: 'auto', maxWidth: '800px', paddingTop: '0px', paddingRight: '20px', paddingBottom: '0px', paddingLeft: '20px' }} onSubmit={sendMessage}>
           <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Send a message!" />
   
           <button type="submit" disabled={!formValue}>Send</button>
@@ -47,9 +47,12 @@ export default function ChatRoom() {
     const messageClass = uid === auth.currentUser.uid ? 'sent' : 'recieved';
   
     return (
-      <div className={`message ${messageClass}`}>
+      <div class="chat-body">
+		<div class="chat-container">
         <img src = {photoURL}/>
         <p>{text}</p>
       </div>
+	  
+	  </div>
     )
   }
