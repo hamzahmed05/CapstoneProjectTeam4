@@ -84,18 +84,20 @@
 .sidebar {
   /* height: 50vh; */
   background-color: #6ec6ff;
-  height: 15vh;
+  /*height: 15vh;*/
+  height: auto;
 }
 
 .content {
-  /* height: 60vh; */
+  height: auto; 
   background-color: #6ec6ff;
+  overflow: scroll;
 }
 
 .sidebar2 {
-  /*background-color: #6ec6ff;*/
+  background-color: #6ec6ff;
   color: #444;
-  /*overflow: scroll; */
-
+  overflow: scroll; 
+  height: 60vh;
 }
 
