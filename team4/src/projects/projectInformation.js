@@ -3,8 +3,8 @@ import { db, firestore } from '../services/firebase'
 
 
 const ProjectInformation = () => {
-    
-    
+
+    /* currently the href is only mapped to project - 1 (dummy data purpose); need to use redux on this */
     return(
         <div className="card z-depth-0 project-summary">
             <div className="card-content grey-text text-darken-3">

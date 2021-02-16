@@ -15,3 +15,101 @@ code {
 .chatroom {
     border-style: solid;
 }
+
+/* Begin Profile CSS */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.profile-title {
+  color: grey;
+  font-size: 18px;
+}
+
+.profile-button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.profile-a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+.profile-button:hover, .profile-a:hover {
+  opacity: 0.7;
+}
+.card h1 {
+	display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+/* End Profile CSS */
+
+/* Begin Chat CSS */
+
+.chat-body {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.chat-body:nth-child(even) {
+border-color: #ccc;
+background-color: #ddd;
+}
+
+.chat-body:nth-child(odd) {
+   border-color: #dedede;
+   background-color: #f1f1f1;
+}
+
+.chat-container {
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.chat-container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.chat-container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.chat-container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.chat-form {
+	border: 3px solid #cecece;
+}
+
+/* End Chat CSS */

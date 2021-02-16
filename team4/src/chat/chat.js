@@ -2,8 +2,6 @@ import React, {useState,  Component } from 'react';
 import {auth, firestore}  from '../services/firebase'
 import firebase from 'firebase/app'
 import { useCollectionData } from 'react-firebase-hooks/firestore';
-import './chat-Style.css';
-
 
 export default function ChatRoom() {
     const messageRef = firestore.collection('messages');
@@ -28,11 +26,11 @@ export default function ChatRoom() {
     }
     return (
       <>
-        <div id="chat-grid">
+        <div>
           {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg}/>)}
         </div>
   
-        <form id ="send-message" onSubmit={sendMessage}>
+        <form class="chat-form" style={{ marginTop: '0px', marginRight: 'auto', marginBottom: '50px', marginLeft: 'auto', maxWidth: '800px', paddingTop: '0px', paddingRight: '20px', paddingBottom: '0px', paddingLeft: '20px' }} onSubmit={sendMessage}>
           <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Send a message!" />
   
           <button type="submit" disabled={!formValue}>Send</button>
@@ -48,9 +46,12 @@ export default function ChatRoom() {
     const messageClass = uid === auth.currentUser.uid ? 'sent' : 'recieved';
   
     return (
-      <div className={`message ${messageClass}`}>
+      <div class="chat-body">
+		<div class="chat-container">
         <img src = {photoURL}/>
         <p>{text}</p>
       </div>
+	  
+	  </div>
     )
   }

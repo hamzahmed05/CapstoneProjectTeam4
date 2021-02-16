@@ -25,8 +25,11 @@ export default function Home(props){
 				//console.log(props.currentUser)
 				return(
 					<>
-						<img src={props.currentUser.photoURL}/>
-						<p> {props.currentUser.displayName}</p>
+						<div>
+							<p> {props.currentUser.accountType} page</p>
+							<img src={props.currentUser.photoURL}/>
+							<p> {props.currentUser.displayName}</p>
+						</div>
 					</>
 
 					)
@@ -38,6 +41,7 @@ export default function Home(props){
 			<div class="wrapper">
 			  <div class="box sidebar">
 				  {isAlreadyAUser()}
+				  
 				  </div>
 			  <div class="box sidebar2"><Chat/></div>
 			  <div class="box content">Project Overview
