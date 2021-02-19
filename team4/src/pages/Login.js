@@ -31,6 +31,7 @@ async function addUserToDb(user){
     email : user.email,
     photoURL: user.photoURL,
     accountType: "new",
+    university: "new",
     uid: user.uid
   });
 }

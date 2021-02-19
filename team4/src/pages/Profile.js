@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { useParams } from 'react-router-dom';
 import {getUserById} from '../helpers/auth'
 import { auth, firestore} from "../services/firebase";
+import { getBetterImage } from '../helpers/helper'
 
 
 class Profile extends Component{
@@ -32,41 +33,33 @@ class Profile extends Component{
         return (
           <div>
             {this.state.isLoaded ? 
-  
-            /*<div>
-              <img src={this.state.user.photoURL}/>
-              <h3>Name: {this.state.user.displayName}</h3>
-              <h3>Email: {this.state.user.email}</h3>
-              <h3>Account Type: {this.state.user.accountType}</h3>
-              <h3>ID: {this.state.uid}</h3>
-            </div> */
-		<div>
-		<h2 style={{textAlign:'center'}}>User Profile</h2>
-		<div class="card">
-		  <img src={this.state.user.photoURL} style= {{ width: '100%' }} alt={this.state.user.displayName} />
-		  <h1>{this.state.user.displayName}</h1>
-		  <p style={{ textTransform: 'capitalize' }} class="profile-title">{this.state.user.accountType}</p>
-			<p>Email: {this.state.user.email}</p>
-			<p>My ID: {this.state.uid} </p>
-		  <p style={{paddingBottom: '24px'}}>Example University</p>
-		</div>
-			</div>
-            
-            : 
-            
-            <h3> Loading </h3>}
+		      <div>
+          <h2 style={{textAlign:'center'}}>User Profile</h2>
+          <div class="card">
+            <img src={getBetterImage(this.state.user.photoURL)} style= {{ width: '100%' }} alt={this.state.user.displayName} />
+            <h1>{this.state.user.displayName}</h1>
+            <p style={{ textTransform: 'capitalize' }} class="profile-title">{this.state.user.accountType}</p>
+            <p>Email: {this.state.user.email}</p>
+            <p>My ID: {this.state.uid} </p>
+            <p style={{paddingBottom: '24px'}}>{this.state.user.university}</p>
           </div>
-        );
-      }
-      catch{
-        return(
-          <div>
-            <h3> The username entered is invalid </h3>
-          </div>
-        )
-      }
-    } 
-  }
+            </div>
+                  
+                  : 
+                  
+                  <h3> Loading </h3>}
+                </div>
+              );
+            }
+            catch{
+              return(
+                <div>
+                  <h3> The username entered is invalid </h3>
+                </div>
+              )
+            }
+          } 
+        }
 
   
   export default Profile
