@@ -26,7 +26,7 @@ export default function ChatRoom() {
     }
     return (
       <>
-        <div>
+        <div class= "chat-grid">
           {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg}/>)}
         </div>
   

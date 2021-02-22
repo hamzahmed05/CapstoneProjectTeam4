@@ -2,6 +2,7 @@ import React from 'react'
 import { db, firestore } from '../services/firebase'
 
 
+
 const ProjectInformation = () => {
     
     /* currently the href is only mapped to project - 1 (dummy data purpose); need to use redux on this */

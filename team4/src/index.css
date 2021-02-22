@@ -112,4 +112,54 @@ background-color: #ddd;
 	border: 3px solid #cecece;
 }
 
+/* .chat-grid{
+  overflow: scroll;
+  height: 50vh;
+} */
+
 /* End Chat CSS */
+
+/* Begin Project Page CSS */
+
+.project-list{
+  overflow: scroll;
+  height: 60vh;
+  border-radius: 25px;
+}
+
+.project-summary{
+  border-radius: 25px;
+}
+
+.project-summary:nth-child(even) {
+  border-color: #ccc;
+  background-color: #ddd;
+  max-width: 800px;
+  }
+  
+.project-summary:nth-child(odd) {
+  border-color: #dedede;
+  background-color: #f1f1f1;
+  max-width: 800px;
+}
+
+.notification-header{
+  background-color: #f1f1f1;
+  text-size-adjust: 0.5;
+}
+
+
+/* End Project Page CSS */
+
+/* Begin Project Detail Page CSS */
+
+.card-content {
+  background-color: #ddd;
+  border-radius: 25px;
+ }
+
+.card-action{
+  background-color: #000000;
+}
+
+/* End Project Detail Page CSS */
