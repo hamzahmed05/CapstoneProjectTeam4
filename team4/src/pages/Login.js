@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import React, {Component} from 'react';
 import SignIn from '../auth/SignIn';
 import { fb , auth, firestore}  from '../services/firebase';
+import { getBetterImage } from '../helpers/helper'
 
 const googleSignIn = () => {
       const provider = new firebase.auth.GoogleAuthProvider();
@@ -29,8 +30,9 @@ async function addUserToDb(user){
   const userRef = firestore.collection('userInfo').doc(user.uid).set({
     displayName : user.displayName,
     email : user.email,
-    photoURL: user.photoURL,
+    photoURL: getBetterImage(user.photoURL),
     accountType: "new",
+    university: "new",
     uid: user.uid
   });
 }
