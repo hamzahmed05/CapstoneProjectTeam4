@@ -36,7 +36,7 @@ class Profile extends Component{
 		      <div>
           <h2 style={{textAlign:'center'}}>User Profile</h2>
           <div class="card">
-            <img src={getBetterImage(this.state.user.photoURL)} style= {{ width: '100%' }} alt={this.state.user.displayName} />
+            <img src={this.state.user.photoURL} style= {{ width: '100%' }} alt={this.state.user.displayName} />
             <h1>{this.state.user.displayName}</h1>
             <p style={{ textTransform: 'capitalize' }} class="profile-title">{this.state.user.accountType}</p>
             <p>Email: {this.state.user.email}</p>
