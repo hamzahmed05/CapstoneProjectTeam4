@@ -5,12 +5,13 @@ import Chat from '../chat/chat'
 import ProjectModule from '../projects/projects'
 import { render } from 'react-dom';
 import Profile from './Profile';
-
+import AllStudents from '../professor/allstudents';
 
 export default function Home(props){
 	
-
 	const history = useHistory();
+
+	
 	function isNewUser(){
 		if(props.currentUser.accountType == "new"){
 		  history.push({
@@ -21,21 +22,44 @@ export default function Home(props){
 	  }
 
 	  function isAlreadyAUser() {
-		  if (props.currentUser.accountType == "student"){
+
+		  if (props.currentUser.accountType != "new"){
 				//console.log(props.currentUser)
 				return(
 					<>
 						<div>
-							<p> {props.currentUser.accountType} page</p>
+							<b><p style={{color: "black", textTransform: "uppercase"}}> {props.currentUser.accountType} page</p></b>
 							<img src={props.currentUser.photoURL}/>
 							<p> {props.currentUser.displayName}</p>
+							<p> {props.currentUser.university}</p>
 						</div>
 					</>
 
 					)
-		  }
+		  } 
 	  }
 
+	  function studentOrProf() {
+
+		if (props.currentUser.accountType == "student"){
+			return(
+				<>
+					<h5> Project Information</h5>
+			  		<ProjectModule/>
+				</>
+			)	  
+	  }
+	  if (props.currentUser.accountType == "professor"){
+		  return(
+			  <>
+			  
+				<AllStudents/>
+			  </>
+		  )
+	  }
+		  
+	  }
+	  
       return (
           <div id="homepage-grid">
 			<div class="wrapper">
@@ -44,9 +68,8 @@ export default function Home(props){
 				  
 				  </div>
 			  <div class="box sidebar2"><Chat/></div>
-			  <div class="box content">Project Overview
-				<br /> 
-				<ProjectModule/></div>
+			  <div class="box content">
+				{studentOrProf()}</div>
 			  <div class="box footer">ECampus ©</div>
 			</div>
 			{isNewUser()}

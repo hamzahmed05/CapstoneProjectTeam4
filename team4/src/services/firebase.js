@@ -1,5 +1,7 @@
 import firebase from 'firebase';
 
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyBHBiTi2fCc0NY3VjVyp8XGQxzfY9jzob0",
     authDomain: "capstone-301501.firebaseapp.com",
@@ -14,3 +16,4 @@ export const fb = firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
 export const db = firebase.database();
 export const firestore = firebase.firestore();
+
