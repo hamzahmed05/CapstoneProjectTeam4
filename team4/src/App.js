@@ -11,7 +11,6 @@ import Dashboard from './dash/dashboard';
 import ProjectDetails from './projects/projectDetails'
 import ChatRoom from './chat/chat';
 import Home from './pages/Home';
-import Chat from './pages/Chat';
 import UserSettings from './pages/UserSettings';
 import SignIn from './auth/SignIn';
 import Login from './pages/Login';
@@ -22,6 +21,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-do
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Profile from './pages/Profile';
 
+import AllStudents from './professor/allstudents';
 
 class App extends Component {
 
@@ -87,6 +87,11 @@ class App extends Component {
             <Route exact path="/profile">
                 {this.state.user ? <Redirect to={`profile/${this.state.user.uid}`} /> : <Login />}
             </Route>
+
+            <Route exact path="/prof">
+                 <AllStudents/>
+            </Route>
+
             
           </Switch>
         </Router>
