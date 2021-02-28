@@ -1,6 +1,6 @@
 import React from 'react'
 import ProjectInformation from './projectInformation'
-import './project-page.css';
+
 
 const ProjectModule = () => {
     return (

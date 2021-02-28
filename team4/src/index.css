@@ -156,9 +156,7 @@ code {
 
 /* End Project Detail Page CSS */
 
-/* End Chat CSS */
-
-/* Student CSS */
+/* Begin Student CSS */
 
 .student_list_container {
   border-radius: 5px;
@@ -182,3 +180,30 @@ code {
   align-content: center;
   margin: auto;
 }
+/* End Student CSS */
+
+/* Begin Scrollbar CSS */
+
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Corner */
+::-webkit-scrollbar-corner{
+  opacity: 0.0;
+}
+
+/* End Scrollbar CSS */

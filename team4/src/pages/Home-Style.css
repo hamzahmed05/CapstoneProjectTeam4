@@ -89,7 +89,7 @@
 
 /* Box behind the project overview*/
 .content {
-  height: 60vh; 
+  height: auto; 
   background-color: #6ec6ff;
   overflow: scroll;
 }
@@ -98,7 +98,7 @@
   background-color: #6ec6ff;
   color: #444;
   overflow: scroll; 
-  height: 67vh;
+  height: 70vh;
 }
 
 .sidebar img {
