@@ -1,6 +1,12 @@
 import React from 'react'
 import ProjectInformation from './projectInformation'
 
+
+
+
+
+
+
 const ProjectModule = () => {
     return (
         <div className="project-list section">
@@ -8,9 +14,15 @@ const ProjectModule = () => {
             <ProjectInformation/>
             <ProjectInformation/>
             <ProjectInformation/>
+            
+            
+            
+            
+           
         </div>
     )
     
 }
+
 
 export default ProjectModule

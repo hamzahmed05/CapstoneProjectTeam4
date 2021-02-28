@@ -6,7 +6,12 @@ import firebase from 'firebase/app'
 import { useHistory, useParams } from 'react-router-dom';
 
 
+
+
+
+
 class CreateProject extends Component {
+    
 
     state = {
         status: '',
@@ -26,7 +31,11 @@ class CreateProject extends Component {
     }
     render () {
         return (
+             
             <div className="container">
+                
+                
+                
                 <form onSubmit={this.handleSubmit} className="white">
                     <h5 className="grey-text text-darken-3"> Create new project</h5>
                     <div className="input-field">
@@ -38,13 +47,22 @@ class CreateProject extends Component {
                         <label htmlFor="content">Project Content</label>
                         <input type="content" id="materialize-textarea" onChange={this.handleChange}/>
                     </div>
+                    
 
                     <div className="input-field">
                         <button className="btn blue lighten-1 z-depth-0">Create</button>
+                        
                     </div>
+                    
+                    
                     </form>
+                    
+                    
             </div>
+        
         )
+   
+        
 
     }
 }

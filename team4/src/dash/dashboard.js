@@ -3,6 +3,9 @@ import Notifications from './notifications'
 import ProjectModule from '../projects/projects'
 
 import CreateProject from "../projects/createProject"
+import Calender from '../projects/Calender/Calender'
+
+
 
 class Dashboard extends Component {
     render() {
@@ -12,10 +15,16 @@ class Dashboard extends Component {
                     <div className="col s12 m6"> 
                         <ProjectModule/>
                     </div>
+                    {/*
                     <div className="col s12 m5 offset-m1">
                         <Notifications/>
+
                     </div>
+                    */}
+                    
+                    
                     <div className="col s12 m12 ">
+                        
                         <CreateProject/>
                     </div>
                 </div>

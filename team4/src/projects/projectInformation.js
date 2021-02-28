@@ -11,6 +11,7 @@ const ProjectInformation = () => {
                 <span className="card-title"><a href="/project/:1">Project Title</a></span> 
                 <p> Posted by Team 4</p>
                 <p className="grey-text">1/25/2021</p>
+                
             </div>
         </div>
     )
