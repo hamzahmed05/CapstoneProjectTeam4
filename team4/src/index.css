@@ -154,4 +154,31 @@ code {
   background-color: #000000;
 }
 
-/*/ End Project Detail Page CSS */
+/* End Project Detail Page CSS */
+
+/* End Chat CSS */
+
+/* Student CSS */
+
+.student_list_container {
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.student_list_container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.student_list_container li {
+  float: left;
+}
+
+.student_list_box {
+  align-content: center;
+  margin: auto;
+}

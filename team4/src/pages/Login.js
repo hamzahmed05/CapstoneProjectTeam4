@@ -19,9 +19,13 @@ class Login extends Component{
   render() {
     return (
         <div>
-          <h3> Please login</h3>
-            <button onClick={googleSignIn}>Sign in with Google</button>
-        </div>       
+          <h1> Welcome to ECampus!</h1>
+		<h4>Please sign in or create a new account</h4>
+ 		<br/>
+
+		<input onClick={googleSignIn} type="image" src="./google_sign_in_button.png"/>
+		<input onClick={googleSignIn} type="image" src="./google_sign_up_button.png"/>
+        </div>
     )
   }
 }
