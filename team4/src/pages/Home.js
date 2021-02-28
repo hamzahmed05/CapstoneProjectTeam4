@@ -52,7 +52,6 @@ export default function Home(props){
 	  if (props.currentUser.accountType == "professor"){
 		  return(
 			  <>
-			  
 				<AllStudents/>
 			  </>
 		  )
