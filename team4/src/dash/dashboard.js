@@ -26,6 +26,7 @@ class Dashboard extends Component {
                     <div className="col s12 m12 ">
                         
                         <CreateProject/>
+                        <Calender/>
                     </div>
                 </div>
             </div>

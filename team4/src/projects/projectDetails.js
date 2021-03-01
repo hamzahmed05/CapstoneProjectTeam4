@@ -22,6 +22,7 @@ const ProjectDetails = (props) => {    // props come from the React Router, that
                 <div className=" card-action gret lighten-4 grey-text">
                     <div> Posted by Team 4</div>
                     <div> Feburary 1st, 2020</div>
+                    <Calender/>
 
 
                     

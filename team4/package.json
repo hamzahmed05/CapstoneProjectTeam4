@@ -8,11 +8,8 @@
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.0",
     "firebase": "^8.2.4",
-<<<<<<< HEAD
     "moment": "^2.29.1",
-=======
     "firebase-admin": "^9.5.0",
->>>>>>> 4973253cfcd6fc75a1afbaa4a5a5428af34a093d
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-firebase-hooks": "^2.2.0",
