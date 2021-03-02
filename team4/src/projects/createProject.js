@@ -14,21 +14,31 @@ class CreateProject extends Component {
     
 
     state = {
-        status: '',
+        status: 'Incomplete',
         content: '',
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-        createdBy: ""
+        createdBy: ''
     }
 
     handleChange = (e) => {
         this.setState({
             [e.target.id]: e.target.value
         })
+
+        var element = document.getElementById(e.target.id + "Label");
+        if (e.target.value != "") {
+            element.classList.add("active");
+            this.setState({ text: e.target.value });
+          } else {
+            element.classList.remove("active");
+          }
     }
     handleSubmit = (e) => {
         e.preventDefault();
+        this.state.createdBy = firebase.auth().currentUser.displayName;
         this.props.createProject(this.state)
     }
+      
     render () {
         return (
              
@@ -38,14 +48,15 @@ class CreateProject extends Component {
                 
                 <form onSubmit={this.handleSubmit} className="white">
                     <h5 className="grey-text text-darken-3"> Create new project</h5>
+
                     <div className="input-field">
-                        <label htmlFor="title">Title</label>
+                        <label htmlFor="title" id="titleLabel">Title</label>
                         <input type="text" id="title" onChange={this.handleChange}/>
                     </div>
 
                     <div className="input-field">
-                        <label htmlFor="content">Project Content</label>
-                        <input type="content" id="materialize-textarea" onChange={this.handleChange}/>
+                        <label htmlFor="content" id="contentLabel">Project Content</label>
+                        <input type="text" id="content" onChange={this.handleChange}/>
                     </div>
                     
 
