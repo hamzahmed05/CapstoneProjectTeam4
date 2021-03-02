@@ -39,6 +39,7 @@ export default function Home(props){
 		  } 
 	  }
 
+
 	  function studentOrProf() {
 
 		if (props.currentUser.accountType == "student"){
@@ -49,10 +50,9 @@ export default function Home(props){
 				</>
 			)	  
 	  }
-	  if (props.currentUser.accountType == "professor"){
-		  return(
+	  if (props.currentUser.accountType == "professor"){  
+		return(
 			  <>
-			  
 				<AllStudents/>
 			  </>
 		  )
