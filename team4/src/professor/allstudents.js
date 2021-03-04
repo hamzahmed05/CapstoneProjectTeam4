@@ -31,13 +31,17 @@ class AllStudents extends Component {
                     });
                 }
             });
+        }).then(() => {
+            this.setState({
+                isLoaded: true,
+                student_list: students
+            })
         })
-
-        this.setState({student_list: students, isLoaded: true});
-            
+      
     }
 
     
+
     render(){
         
         const info = this.state.student_list.map((student) => { 
@@ -58,7 +62,7 @@ class AllStudents extends Component {
                         </div>
                 </div>
                 :
-                <h3>Loading</h3>
+                <div class="loader"></div>
                 }
             </div>
         );
