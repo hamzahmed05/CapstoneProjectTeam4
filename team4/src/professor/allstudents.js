@@ -4,13 +4,19 @@ import {firestore} from '../services/firebase'
 
 class AllStudents extends Component {
 
-    
+
     constructor(props) {
         super(props);
-        this.state = {student_list: []}
-        
+        this.state = {student_list: [], isLoaded: false}
+
     }
 
+
+    componentDidUpdate(){
+        if (this.state.isLoaded == false){
+            this.componentDidMount();
+        }
+    }
     componentDidMount(){
         const students = [];
         firestore.collection("userInfo").get().then((querySnapshot) => {
@@ -25,25 +31,39 @@ class AllStudents extends Component {
                     });
                 }
             });
+        }).then(() => {
+            this.setState({
+                isLoaded: true,
+                student_list: students
+            })
         })
-
-        this.setState({student_list: students});
+      
     }
+
     
+
     render(){
+        
         const info = this.state.student_list.map((student) => { 
                         return <div className="student_list_container" key={student.uid}>
                             <img src={student.img}></img>
                             <p>{student.name} | {student.type} at {student.uni}.</p>
                             </div>
                         })
+
         return (
             <div>
-                <h1>Current Students</h1>
+                {this.state.isLoaded ? 
                 <div>
-                    Information: 
-                    <ul className="student_list_box">{info}</ul>
+                    <h1>Current Students</h1>
+                        <div>
+                            Information: 
+                            <ul className="student_list_box">{info}</ul>
+                        </div>
                 </div>
+                :
+                <div class="loader"></div>
+                }
             </div>
         );
     }
