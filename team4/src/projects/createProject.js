@@ -55,17 +55,17 @@ class CreateProject extends Component {
 
                     <div className="input-field">
                         <label htmlFor="title" id="titleLabel">Title</label>
-                        <input type="text" id="title" onChange={this.handleChange}/>
+                        <input type="text" id="title" required onChange={this.handleChange}/>
                     </div>
 
                     <div className="input-field">
                         <label htmlFor="content" id="contentLabel">Project Content</label>
-                        <input type="text" id="content" onChange={this.handleChange}/>
+                        <input type="text" id="content" required onChange={this.handleChange}/>
                     </div>
 
                     <div className="input-field">
                         <label htmlFor="date" id="dateLabel"></label>
-                        <input type="date" id="date" onChange={this.handleChange}/>
+                        <input type="date" id="date" required onChange={this.handleChange}/>
                     </div>
                     
 

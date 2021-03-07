@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { auth, firestore} from "../services/firebase";
-import moment from "moment";
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css'; 
 
 class ProjectDetails extends Component{
 
@@ -31,13 +32,27 @@ class ProjectDetails extends Component{
       }
 
       handleDelete = (e) =>{
-        firestore.collection('projects').doc(this.state.id).delete()
-        .then(res => { 
-          this.props.history.push({
-            pathname: "/project"
-          });
-          window.location.reload(false);
+        confirmAlert({
+          title: 'Confirm to submit',
+          message: 'Are you sure you want to delete this project?',
+          buttons: [
+            {
+              label: 'Yes',
+              onClick: () => { 
+                  firestore.collection('projects').doc(this.state.id).delete()
+                      .then(res => {this.props.history.push({
+                          pathname: "/project"
+                      });
+                  window.location.reload(false);
+                });}
+            },
+            {
+              label: 'No'
+            }
+          ]
         });
+
+        
       }
 
       handleSubmit = (e) => {
