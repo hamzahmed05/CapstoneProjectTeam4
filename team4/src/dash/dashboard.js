@@ -3,7 +3,6 @@ import Notifications from './notifications'
 import ProjectModule from '../projects/projects'
 
 import CreateProject from "../projects/createProject"
-import Calender from '../projects/Calender/Calender'
 
 
 
@@ -24,9 +23,7 @@ class Dashboard extends Component {
                     
                     
                     <div className="col s12 m12 ">
-                        
                         <CreateProject/>
-                        <Calender/>
                     </div>
                 </div>
             </div>

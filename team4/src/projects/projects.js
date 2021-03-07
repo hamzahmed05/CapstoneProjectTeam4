@@ -23,9 +23,10 @@ class project extends Component {
                 {contents:  `${doc.data().content}`, 
                 createdInfo: `${doc.data().createdAt}`,
                 createdUser: `${doc.data().createdBy}`,
-                material: `${doc.data().materialize_textarea}`,
                 status: `${doc.data().status}`,
-                title: `${doc.data().title}`
+                title: `${doc.data().title}`, 
+                id: `${doc.data().id}`,
+                date: `${doc.data().date}`
                 }
             );
 
@@ -33,7 +34,9 @@ class project extends Component {
     }).then(() => {
         this.setState({
             isLoaded: true,
-            projects: studentProjects
+            projects: studentProjects.sort((a,b) => {
+                return new Date(a.date).getTime() - new Date (b.date).getTime()
+            })
         })
     })
     }
