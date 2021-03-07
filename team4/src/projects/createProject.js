@@ -4,6 +4,7 @@ import { createProject } from '../actions/projectActions'
 import {auth, firestore}  from '../services/firebase'
 import firebase from 'firebase/app'
 import { useHistory, useParams } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 
 
 
@@ -17,7 +18,9 @@ class CreateProject extends Component {
         status: 'Incomplete',
         content: '',
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-        createdBy: ''
+        createdBy: '',
+        date: '',
+        id: uuidv4()
     }
 
     handleChange = (e) => {
@@ -36,7 +39,8 @@ class CreateProject extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.state.createdBy = firebase.auth().currentUser.displayName;
-        this.props.createProject(this.state)
+        this.props.createProject(this.state);
+        
     }
       
     render () {
@@ -57,6 +61,11 @@ class CreateProject extends Component {
                     <div className="input-field">
                         <label htmlFor="content" id="contentLabel">Project Content</label>
                         <input type="text" id="content" onChange={this.handleChange}/>
+                    </div>
+
+                    <div className="input-field">
+                        <label htmlFor="date" id="dateLabel"></label>
+                        <input type="date" id="date" onChange={this.handleChange}/>
                     </div>
                     
 
