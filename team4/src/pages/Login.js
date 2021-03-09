@@ -24,7 +24,6 @@ class Login extends Component{
  		<br/>
 
 		<input onClick={googleSignIn} type="image" src="./google_sign_in_button.png"/>
-		<input onClick={googleSignIn} type="image" src="./google_sign_up_button.png"/>
         </div>
     )
   }

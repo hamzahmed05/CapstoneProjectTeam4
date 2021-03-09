@@ -59,8 +59,6 @@ class project extends Component {
          </div>
         )
     }
-
-    
 }
 
 
