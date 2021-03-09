@@ -114,6 +114,16 @@ code {
   border: 3px solid #cecece;
 }
 
+.to-bottom-button {
+  background-color: #ddd ;
+  font-size: 25px;
+}
+
+.to-top-button {
+  background-color: #ddd;
+  font-size: 25px;
+}
+
 /* End Chat CSS */
 
 /* Begin Project Page CSS */
@@ -204,6 +214,6 @@ code {
 /* Corner */
 ::-webkit-scrollbar-corner{
   opacity: 0.0;
-}
+} 
 
 /* End Scrollbar CSS */
