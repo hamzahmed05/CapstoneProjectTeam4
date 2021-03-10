@@ -53,7 +53,7 @@ export default function ChatRoom() {
     return (
       <div class="chat-body">
 		  <div class="chat-container">
-        <img src = {photoURL}/>
+        <a href= {'profile/' + uid}><img src = {photoURL}/></a>
         <p>{text}</p>
       </div>
 	  

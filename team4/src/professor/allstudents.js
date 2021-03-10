@@ -46,7 +46,7 @@ class AllStudents extends Component {
         
         const info = this.state.student_list.map((student) => { 
                         return <div className="student_list_container" key={student.uid}>
-                            <img src={student.img}></img>
+                            <a href={'profile/' + student.uid}><img src={student.img}></img></a>
                             <p>{student.name} | {student.type} at {student.uni}.</p>
                             </div>
                         })
