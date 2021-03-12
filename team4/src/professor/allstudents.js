@@ -1,6 +1,6 @@
 import React, {Component } from 'react'
 import {firestore} from '../services/firebase'
-
+import CreateUserGroup from './CreateUserGroup'
 
 class AllStudents extends Component {
 
@@ -59,6 +59,9 @@ class AllStudents extends Component {
                         <div>
                             Information: 
                             <ul className="student_list_box">{info}</ul>
+                        </div>
+                        <div>
+                            <CreateUserGroup/>    
                         </div>
                 </div>
                 :

@@ -6,6 +6,7 @@ import ProjectModule from '../projects/projects'
 import { render } from 'react-dom';
 import Profile from './Profile';
 import AllStudents from '../professor/allstudents';
+import UserGroups from '../professor/allgroups';
 
 export default function Home(props){
 	
@@ -54,6 +55,7 @@ export default function Home(props){
 		return(
 			  <>
 				<AllStudents/>
+				<UserGroups/>
 			  </>
 		  )
 	  }
