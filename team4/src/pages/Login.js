@@ -6,42 +6,51 @@ import { fb , auth, firestore}  from '../services/firebase';
 import { getBetterImage } from '../helpers/helper'
 
 const googleSignIn = () => {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      auth.signInWithPopup(provider).then((result) => {
-        if (result.additionalUserInfo.isNewUser){
-          addUserToDb(result.user);
-        }
-      });   
-    }
+	const provider = new firebase.auth.GoogleAuthProvider();
+	auth.signInWithPopup(provider).then((result) => {
+		if (result.additionalUserInfo.isNewUser){
+			addUserToDb(result.user);
+		}
+	});   
+}
 
 
 class Login extends Component{
-  render() {
-    return (
-        <div>
-          <h1> Welcome to ECampus!</h1>
-		<h4>Please sign in or create a new account</h4>
- 		<br/>
+	render() {
+		return (
+			<div>
 
-		<input onClick={googleSignIn} type="image" src="./google_sign_in_button.png"/>
-        </div>
-    )
-  }
+				<div className="login-content">
+						<img style={{ width:'100%', height: '100%' }} src='./building.jpg'/>
+
+				</div>
+					<div className="login-middle">
+						<h1> Welcome to ECampus!</h1>
+						<h4>Please sign in or create a new account</h4>
+						<br/>
+
+						<input onClick={googleSignIn} type="image" src="./google_sign_in_button.png"/>
+					</div>
+				
+
+			</div>
+		)
+	}
 }
 
 async function addUserToDb(user){
-  const userRef = firestore.collection('userInfo').doc(user.uid).set({
-    displayName : user.displayName,
-    email : user.email,
-    photoURL: getBetterImage(user.photoURL),
-    accountType: "new",
-    university: "new",
-    uid: user.uid
-  });
+	const userRef = firestore.collection('userInfo').doc(user.uid).set({
+		displayName : user.displayName,
+		email : user.email,
+		photoURL: getBetterImage(user.photoURL),
+		accountType: "new",
+		university: "new",
+		uid: user.uid
+	});
 }
 
 
 export default Login
 
 
-    
+
